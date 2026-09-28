@@ -1,0 +1,26 @@
+{
+     "Login": "लॉगिन",
+     "Sign In": "साइन इन",
+     "Sign Up": "साइन अप",
+     "Forgot My Password?": "क्या आप अपना पासवर्ड भूल गए?",
+     "Login Id": "लॉगिन",
+     "Go": "जाना",
+     "Password": "पासवर्ड",
+     "User Registration": "यूज़र रजिस्ट्रेशन",
+     "Online Result System": "ऑनलाइन परिणाम प्रणाली",
+     "Create Your ORS Account": "अपना ORS अकाउंट बनाएँ",
+     "First Name": "पहला नाम",
+       "Last Name": "उपनाम",
+       "Date Of Birth": "जन्म तारीख",
+       "Gender": "लिंग",
+       "Mobile": "मोबाइल नंबर",
+       "Login here": "यहाँ लॉगिन करें",
+       "Already have an account?": "क्या आपके पास पहले से अकाउंट है?",
+       "English": "अंग्रेज़ी",
+       "Hindi": "हिंदी",
+       "Hi, Guest": "नमस्ते, अतिथि",
+       "DashBoard": "डैशबोर्ड",
+       "Language": "भाषा",
+       "Welcome To Online Result System": "ऑनलाइन रिजल्ट सिस्टम में आपका स्वागत है।"
+
+}

@@ -1,0 +1,242 @@
+<div class="d-flex flex-column justify-content-center align-items-center"
+     style="min-height: 100vh; background-color: #f5f7fa; padding: 20px;">
+
+   <!-- ================= LOGIN CARD ================= -->
+   <div class="card border-0 shadow-lg"
+        style="width: 100%; max-width: 450px; border-radius: 20px; overflow: hidden;">
+
+      <!-- ================= HEADER ================= -->
+      <div style="
+         background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);
+         padding: 30px 20px;
+         text-align: center;
+      ">
+
+         <!-- Graduation Cap Icon -->
+         <div style="font-size: 50px; margin-bottom: 15px;">
+            <i class="bi bi-mortarboard-fill"
+               style="
+                  color: rgba(255,255,255,0.7);
+                  font-size: 60px;
+               ">
+            </i>
+         </div>
+
+         <!-- Title -->
+         <h2 class="text-white fw-bold mb-1">
+            {{'Login' | translate}}
+         </h2>
+
+         <!-- Subtitle -->
+         <p class="text-white-50 mb-0"
+            style="font-size: 1rem;">
+            <!---Online Result System--> {{'Online Result System' | translate}}
+         </p>
+
+      </div>
+
+
+      <!-- ================= FORM SECTION ================= -->
+      <div class="card-body p-4">
+
+         <!-- Messages -->
+         <div style="
+            min-height: 30px;
+            margin-bottom: 15px;
+            text-align: center;
+         ">
+
+         <div *ngIf="form.successMsg" class="alert alert-success alert-dismissible fade show">
+   <span>{{ form.successMsg }}</span>
+
+
+</div>
+
+            <!-- Success Message -->
+            <h6
+               style="margin: 0; color: green;"
+               *ngIf="!form.error && form.message">
+
+               {{ form.message }}
+
+            </h6>
+
+            <!-- Error Message -->
+            <h6
+               style="margin: 0; color: red;"
+               *ngIf="form.error && form.message">
+
+               {{ form.message }}
+
+            </h6>
+
+         </div>
+
+
+
+
+         <!-- ================= LOGIN ID ================= -->
+         <div class="mb-3">
+
+            <label
+               class="form-label fw-semibold text-dark"
+               style="font-size: 0.95rem;">
+
+               <i
+                  class="bi bi-person-fill me-2"
+                  style="color: #666;">
+               </i>
+
+               <!--Login Id lang--> {{'Login Id' | translate}}
+
+               <span style="color: red;">*</span>
+
+            </label>
+
+
+            <input
+               type="text"
+               class="form-control"
+               name="loginId"
+               [(ngModel)]="form.data.loginId"
+               placeholder="Enter your login ID"
+               style="
+                  border: 1px solid #e0e0e0;
+                  border-radius: 10px;
+                  padding: 12px 15px;
+                  font-size: 0.95rem;
+               ">
+
+
+            <!-- Login ID Error -->
+            <small
+               class="text-danger d-block mt-1"
+               *ngIf="form.inputerror.loginId">
+
+               <i class="bi bi-exclamation-circle me-1"></i>
+
+               {{ form.inputerror.loginId}}
+
+            </small>
+
+         </div>
+
+
+         <!-- ================= PASSWORD ================= -->
+         <div class="mb-3">
+
+            <label
+               class="form-label fw-semibold text-dark"
+               style="font-size: 0.95rem;">
+
+               <i
+                  class="bi bi-lock-fill me-2"
+                  style="color: #666;">
+               </i>
+
+                <!--password lang--> {{'Password' | translate}}
+
+               <span style="color: red;">*</span>
+
+            </label>
+
+
+            <input
+               type="password"
+               class="form-control"
+               name="password"
+               [(ngModel)]="form.data.password"
+               placeholder="Enter your password"
+               style="
+                  border: 1px solid #e0e0e0;
+                  border-radius: 10px;
+                  padding: 12px 15px;
+                  font-size: 0.95rem;
+               ">
+
+
+            <!-- Password Error -->
+            <small
+               class="text-danger d-block mt-1"
+               *ngIf="form.inputerror.password">
+
+               <i class="bi bi-exclamation-circle me-1"></i>
+
+               {{ form.inputerror.password }}
+
+            </small>
+
+         </div>
+
+
+         <!-- ================= SIGN IN BUTTON ================= -->
+         <button
+            type="button"
+            class="btn btn-primary w-100 fw-bold py-2"
+            (click)="signIn()"
+            style="
+               background: linear-gradient(
+                  135deg,
+                  #1565c0 0%,
+                  #0d47a1 100%
+               );
+               border: none;
+               border-radius: 10px;
+               font-size: 1rem;
+               margin-bottom: 20px;
+            ">
+
+            <i class="bi bi-box-arrow-in-right me-2"></i>
+
+            <!--sign In--> {{'Sign In' | translate}}
+
+         </button>
+
+
+         <!-- ================= LINKS ================= -->
+         <div
+            class="d-flex justify-content-between align-items-center"
+            style="font-size: 0.95rem;">
+
+            <!-- Sign Up -->
+            <a
+               routerLink="/signup"
+               class="text-success fw-semibold"
+               style="text-decoration: none; cursor: pointer;">
+
+               <i class="bi bi-person-plus-fill me-1"></i>
+
+               <!--sign Up--> {{'Sign Up' | translate}}
+
+            </a>
+
+
+              <!-- Forgot Password -->
+            <div class="text-center">
+                <a [routerLink]="['/login/forgotpassword']" class="text-decoration-none fw-semibold">
+                    <i class="bi bi-key-fill me-1"></i>
+                   <!--Forgot Password--> {{'Forgot My Password?' | translate}}
+                </a>
+            </div>
+
+         </div>
+
+      </div>
+
+   </div>
+
+
+   <!-- ================= COPYRIGHT ================= -->
+   <div
+      class="text-center mt-3">
+
+      <p
+         class="text-muted small mb-0">
+
+         &copy; 2024 Rays Technologies &mdash; Online Result System
+
+      </p>
+
+   </div>
+
+</div>

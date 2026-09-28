@@ -1,0 +1,191 @@
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background-color: #f5f7fa; padding: 20px;">
+
+   <!-- Signup Card Container -->
+   <div class="card border-0 shadow-lg" style="width: 100%; max-width: 600px; border-radius: 20px; overflow: hidden;">
+
+      <!-- Header Section with Gradient Background -->
+      <div style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%); padding: 40px 20px; text-align: center;">
+         
+         <!-- User Icon -->
+         <div style="font-size: 50px; margin-bottom: 20px;">
+            <i class="bi bi-person-plus-fill" style="color: rgba(255,255,255,0.7); font-size: 60px;"></i>
+         </div>
+
+         <!-- Title -->
+         <h2 class="text-white fw-bold mb-2" style="font-size: 2rem;"><!--User Registration--> {{'User Registration' | translate}}</h2>
+
+         <!-- Subtitle -->
+         <p class="text-white-50" style="font-size: 1rem; margin: 0;">{{'अपना ORS अकाउंट बनाएँ' | translate}}</p>
+
+      </div>
+
+      <!-- Form Section -->
+      <div class="card-body p-4">
+
+         <!-- Messages -->
+         <div style="height: 40px; margin-bottom: 20px; text-align: center;">
+            <h5 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h5>
+            <h5 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h5>
+         </div>
+
+         <!-- Form Fields -->
+         <div class="row">
+
+            <!-- First Name -->
+            <div class="col-md-6 mb-3">
+               <label class="form-label fw-semibold text-dark" style="font-size: 0.95rem;">
+                <!-- First Name  lang--> {{'First Name' | translate}} <span style="color: red;">*</span>
+               </label>
+               <input 
+                  type="text" 
+                  class="form-control" 
+                  name="firstName" 
+                  [(ngModel)]="form.data.firstName" 
+                  placeholder="Enter first name"
+                  style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px;">
+               <small class="text-danger d-block mt-1" *ngIf="form.inputerror.firstName">
+                  {{form.inputerror.firstName}}
+               </small>
+            </div>
+
+            <!-- Last Name -->
+            <div class="col-md-6 mb-3">
+               <label class="form-label fw-semibold text-dark" style="font-size: 0.95rem;">
+                   <!-- Last Name  lang--> {{'Last Name' | translate}} <span style="color: red;">*</span>
+               </label>
+               <input 
+                  type="text" 
+                  class="form-control" 
+                  name="lastName" 
+                  [(ngModel)]="form.data.lastName" 
+                  placeholder="Enter last name"
+                  style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px;">
+               <small class="text-danger d-block mt-1" *ngIf="form.inputerror.lastName">
+                  {{form.inputerror.lastName}}
+               </small>
+            </div>
+
+         </div>
+
+         <!-- Login ID (Email) -->
+         <div class="mb-3">
+            <label class="form-label fw-semibold text-dark" style="font-size: 0.95rem;">
+               <!-- Login ID (Email) --> {{'Login Id' | translate}} <span style="color: red;">*</span>
+            </label>
+            <input 
+               type="email" 
+               class="form-control" 
+               name="loginId" 
+               [(ngModel)]="form.data.loginId" 
+               placeholder="Must be Email ID"
+               style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px;">
+            <small class="text-danger d-block mt-1" *ngIf="form.inputerror.loginId">
+               {{form.inputerror.loginId}}
+            </small>
+         </div>
+
+         <!-- Password & Confirm Password -->
+         <div class="row">
+
+            <!-- Password -->
+            <div class="col-md-6 mb-3">
+               <label class="form-label fw-semibold text-dark" style="font-size: 0.95rem;">
+                  <!--Password lang--> {{'Password'| translate}} <span style="color: red;">*</span>
+               </label>
+               <input 
+                  type="password" 
+                  class="form-control" 
+                  name="password" 
+                  [(ngModel)]="form.data.password" 
+                  placeholder="Enter password"
+                  style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px;">
+               <small class="text-danger d-block mt-1" *ngIf="form.inputerror.password">
+                  {{form.inputerror.password}}
+               </small>
+            </div>
+
+         </div>
+
+         <!-- Gender & Date of Birth -->
+         <div class="row">
+
+            <!-- Gender -->
+            <div class="col-md-6 mb-3">
+               <label class="form-label fw-semibold text-dark" style="font-size: 0.95rem;">
+                  <!--Gender lang--> {{'Gender' | translate}} <span style="color: red;">*</span>
+               </label>
+               <select 
+                  class="form-select" 
+                  name="gender" 
+                  [(ngModel)]="form.data.gender"
+                  style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px;">
+                  <option value="undefined">-----------Select Role-----------</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+               </select>
+               <small class="text-danger d-block mt-1" *ngIf="form.inputerror.gender">
+                  {{form.inputerror.gender}}
+               </small>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="col-md-6 mb-3">
+               <label class="form-label fw-semibold text-dark" style="font-size: 0.95rem;">
+                  <!--Don lang--> {{'Date Of Birth' | translate}} (mm/dd/yyyy) <span style="color: red;">*</span>
+               </label>
+               <input 
+                  type="date" 
+                  class="form-control" 
+                  name="dob" 
+                  [(ngModel)]="form.data.dob"
+                  style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px;">
+               <small class="text-danger d-block mt-1" *ngIf="form.inputerror.dob">
+                  {{form.inputerror.dob}}
+               </small>
+            </div>
+
+         </div>
+
+         <!-- Mobile -->
+         <div class="mb-4">
+            <label class="form-label fw-semibold text-dark" style="font-size: 0.95rem;">
+               <!--Mobile lang--> {{'Mobile' | translate}} <span style="color: red;">*</span>
+            </label>
+            <input 
+               type="text" 
+               class="form-control" 
+               name="phone" 
+               [(ngModel)]="form.data.phone" 
+               maxlength="10"
+               placeholder="Enter mobile number"
+               style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px;">
+            <small class="text-danger d-block mt-1" *ngIf="form.inputerror.phone">
+               {{form.inputerror.phone}}
+            </small>
+         </div>
+
+         <!-- Sign Up Button -->
+         <button 
+            class="btn btn-primary w-100 fw-bold py-2" 
+            (click)="signUp()"
+            style="background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%); border: none; border-radius: 8px; font-size: 1rem; margin-bottom: 20px;">
+            <i class="bi bi-person-plus-fill me-2"></i>{{'Sign Up' | translate}}
+         </button>
+
+         <!-- Login Link -->
+         <div class="text-center" style="font-size: 0.95rem;">
+            <!--Already have an account? lang--> {{'Already have an account?' | translate}} 
+             <a routerLink="/login"
+       class="text-primary fw-semibold"
+       style="text-decoration: none;">
+       <!-- Login here lang--> {{'Login here' | translate}}
+
+    </a>
+         </div>
+
+      </div>
+
+   </div>
+
+</div>

@@ -1,0 +1,180 @@
+
+
+<div class="container py-4" style="max-width: 700px;">
+    <div class="card border-10 shadow-sm rounded-4 overflow-hidden">
+
+        <div class="card-header text-white border-0 py-3 px-4"
+            style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
+
+            <h5 class="mb-0 fw-bold" *ngIf="!form.data.id">
+                <i class="bi bi-person-fill-add me-1">Add User</i>
+            
+            </h5>
+
+            <h5 class="mb-0 fw-bold" *ngIf="form.data.id>0">
+                <i class="bi bi-pencil-square me-2">Update User</i>
+           
+            </h5>
+
+        </div>
+
+        <div class="card-body p-4">
+
+            <!-- Error Message -->
+            <div class="alert alert-danger py-2 mx-3 mt-3 d-flex justify-content-between align-items-center"
+                *ngIf="form.error && form.message">
+
+                <span>
+                    <i class="bi bi-exclamation-circle-fill me-2"></i>
+                    {{form.message}}
+                </span>
+
+                <button type="button" class="btn-close" (click)="form.message=''">
+                </button>
+
+            </div>
+
+            <!-- Success Message -->
+            <div class="alert alert-success py-2 mx-3 mt-3 d-flex justify-content-between align-items-center"
+                *ngIf="!form.error && form.message">
+
+                <span>
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    {{form.message}}
+                </span>
+
+                <button type="button" class="btn-close" (click)="form.message=''">
+                </button>
+
+            </div>
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        First Name <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control" [(ngModel)]="form.data.firstName" name="firstName"
+                        placeholder="Enter First Name">
+                    <small class="text-danger">{{form.inputerror.firstName}}</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        Last Name <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control" [(ngModel)]="form.data.lastName" name="lastName"
+                        placeholder="Enter Last Name">
+                    <small class="text-danger">{{form.inputerror.lastName}}</small>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label fw-semibold">
+                        Login Id <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control" [(ngModel)]="form.data.loginId" name="loginId"
+                        placeholder="Enter Login ID">
+                    <small class="text-danger">{{form.inputerror.loginId}}</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        Password <span class="text-danger">*</span>
+                    </label>
+                    <input type="password" class="form-control" [(ngModel)]="form.data.password" name="password"
+                        placeholder="Enter Password">
+                    <small class="text-danger">{{form.inputerror.password}}</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        Date of Birth <span class="text-danger">*</span>
+                    </label>
+                    <input type="date" class="form-control" [(ngModel)]="form.data.dob"
+                        [ngModel]="form.data.dob | date:'yyyy-MM-dd'" name="dob">
+                    <small class="text-danger">{{form.inputerror.dob}}</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        Gender <span class="text-danger">*</span>
+                    </label>
+                    <select class="form-select" [(ngModel)]="form.data.gender" name="gender">
+                        <option value="undefined">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <small class="text-danger">{{form.inputerror.gender}}</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        Role <span class="text-danger">*</span>
+                    </label>
+                    <select class="form-select" [(ngModel)]="form.data.roleId" name="roleId">
+                        <option value="undefined">Select Role</option>
+                        <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">
+                            {{obj.value}}
+                        </option>
+                    </select>
+                    <small class="text-danger">{{form.inputerror.roleId}}</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        Mobile <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control" [(ngModel)]="form.data.phone" name="phone" maxlength="10"
+                        placeholder="Enter Mobile No">
+                    <small class="text-danger">{{form.inputerror.phone}}</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        Alternate Mobile <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control" [(ngModel)]="form.data.alternateMobile"
+                        name="alternateMobile" maxlength="10" placeholder="Enter Alternate Mobile No">
+                    <small class="text-danger">{{form.inputerror.alternateMobile}}</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">
+                        Status <span class="text-danger">*</span>
+                    </label>
+                    <select class="form-select" [(ngModel)]="form.data.status" name="status">
+                        <option value="undefined">Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                    <small class="text-danger">{{form.inputerror.status}}</small>
+                </div>
+
+            </div>
+
+              <div class="mb-3"><label class="form-label fw-bold">Image<span style="color: red;">*</span></label>
+                 
+                <div class="mb-2">
+
+        <img [src]="form.data.imageId ? 'http://localhost:8080/User/profilePic/' + form.data.id : 'assets/default.jpg'" class="img-thumbnail" style="width:100px; height:100px; object-fit:cover;" alt="Profile Image" onerror="this.onerror=null; this.src='assets/default.jpg';"> </div>
+
+                <input type="file" name="profileImage" (change)="onFileSelect($event)" class="form-control" accept="image/*"></div>
+
+            <div class="d-flex gap-2 mt-4 pt-3 border-top">
+                <button class="btn btn-primary" (click)="submit()">
+                    <i class="bi bi-save me-1"></i>
+                    Save
+                </button>
+
+                <button type="button" (click)="forward('userList')" class="btn btn-outline-secondary">
+                    <i class="bi bi-list-ul me-1"></i>
+                    List
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
