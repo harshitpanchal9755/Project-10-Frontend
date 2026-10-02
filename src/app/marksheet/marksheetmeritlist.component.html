@@ -1,66 +1,66 @@
 
+<div class="container py-4" style="margin-top:200px;">
 
-<div class="container-fluid px-4 py-4" style="max-width: 1100px;">
-
-    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+    <div class="card shadow-lg border-0 rounded-4">
 
         <!-- Header -->
-        <div class="card-header text-white border-0 py-3 px-4"
-            style="background:linear-gradient(135deg,#0d2137 0%,#1565c0 100%);">
+        <div class="card-header text-center text-white py-3"
+            style="background:linear-gradient(135deg,#0d2137,#1565c0);">
 
-            <h4 class="mb-0 fw-bold text-center">
+            <h3 class="fw-bold mb-0">
                 <i class="bi bi-trophy-fill me-2"></i>
                 Marksheet Merit List
-            </h4>
+            </h3>
 
         </div>
-
-        <!-- Print Button -->
-        <div class="p-3 text-end bg-light border-bottom">
-
-            <button class="btn btn-primary btn-lg shadow-sm px-4 rounded-pill" (click)="printReport()">
-
+  <!-- Print Button -->
+         <div class="p-3 text-end">
+            <button class="btn btn-primary" (click)="printReport()">
                 <i class="bi bi-printer-fill me-2"></i>
-                {{'PrintReport'}}
-
+                Print
             </button>
-
-        </div>
-
+        </div> 
         <!-- Table -->
-        <div class="table-responsive px-3">
+        <div class="table-responsive">
 
-            <table class="table table-hover align-middle mb-0">
+            <table class="table table-hover table-bordered align-middle mb-0">
 
-                <thead class="table-light">
+                <thead class="table-dark text-center sticky-top">
+
                     <tr>
-                        <th class="text-center">SNo</th>
-                        <th>RollNO</th>
+                        <th>S.No</th>
+                        <th>Roll No</th>
                         <th>Name</th>
-                        <th class="text-center">Physics</th>
-                        <th class="text-center">Chemistry</th>
-                        <th class="text-center">Maths</th>
-                        <th class="text-center">Total</th>
-                        <th class="text-center">Percentage(%)</th>
+                        <th>Physics</th>
+                        <th>Chemistry</th>
+                        <th>Maths</th>
+                        <th>Total</th>
+                        <th>Percentage</th>
                     </tr>
+
                 </thead>
 
                 <tbody>
 
                     <tr *ngFor="let m of form.list; let i=index">
 
+                        <!-- Rank -->
                         <td class="text-center">
 
-                            <span *ngIf="i==0" class="badge bg-warning text-dark fs-6">
-                                <i class="bi bi-trophy-fill"></i> 1
+                            <span *ngIf="i==0"
+                                class="badge bg-warning text-dark fs-6 px-3 py-2">
+                                🥇
                             </span>
 
-                            <span *ngIf="i==1" class="badge bg-secondary fs-6">
-                                2
+                            <span *ngIf="i==1"
+                                class="badge bg-secondary fs-6 px-3 py-2">
+                                🥈
                             </span>
 
-                            <span *ngIf="i==2" class="badge fs-6" style="background:#cd7f32;">
-                                3
+                            <span *ngIf="i==2"
+                                class="badge text-white fs-6 px-3 py-2"
+                                style="background:#cd7f32;">
+                                🥉
                             </span>
 
                             <span *ngIf="i>2">
@@ -69,7 +69,7 @@
 
                         </td>
 
-                        <td class="fw-semibold">
+                        <td class="fw-bold text-center">
                             {{m.rollNo}}
                         </td>
 
@@ -78,19 +78,19 @@
                         </td>
 
                         <td class="text-center">
-                            <span class="badge bg-primary rounded-pill px-3">
+                            <span class="badge bg-primary px-3 py-2">
                                 {{m.physics}}
                             </span>
                         </td>
 
                         <td class="text-center">
-                            <span class="badge bg-success rounded-pill px-3">
+                            <span class="badge bg-success px-3 py-2">
                                 {{m.chemistry}}
                             </span>
                         </td>
 
                         <td class="text-center">
-                            <span class="badge bg-warning text-dark rounded-pill px-3">
+                            <span class="badge bg-warning text-dark px-3 py-2">
                                 {{m.maths}}
                             </span>
                         </td>
@@ -101,13 +101,18 @@
 
                         <td class="text-center">
 
-                            <span *ngIf="m.physics >= 33 && m.chemistry >= 33 && m.maths >= 33">
-                                {{((m.physics+m.maths+m.chemistry)*100)/300}}%
+                            <span class="badge bg-success"
+                                *ngIf="m.physics>=33 && m.chemistry>=33 && m.maths>=33">
+
+                                {{((m.physics+m.maths+m.chemistry)*100)/300 | number:'1.2-2'}} %
+
                             </span>
 
-                            <span *ngIf="m.physics < 33 || m.chemistry < 33 || m.maths < 33"
-                                class="text-danger fw-bold">
+                            <span class="badge bg-danger"
+                                *ngIf="m.physics<33 || m.chemistry<33 || m.maths<33">
+
                                 FAIL
+
                             </span>
 
                         </td>
@@ -120,17 +125,21 @@
 
         </div>
 
-        <!-- Messages -->
-        <div class="p-3">
+        <!-- Message -->
+        <div class="card-footer bg-white">
 
-            <div *ngIf="form.error" class="alert alert-danger">
-                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <div *ngIf="form.error"
+                class="alert alert-danger mb-0">
+
                 {{form.message}}
+
             </div>
 
-            <div *ngIf="!form.error && form.message" class="alert alert-success">
-                <i class="bi bi-check-circle-fill me-2"></i>
+            <div *ngIf="!form.error && form.message"
+                class="alert alert-success mb-0">
+
                 {{form.message}}
+
             </div>
 
         </div>

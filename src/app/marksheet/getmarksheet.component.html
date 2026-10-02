@@ -1,51 +1,50 @@
 <div class="container py-4" style="max-width: 900px;">
 
+   <div class="container py-4" style="margin-top:90px; max-width:900px;">
+
     <!-- Search Card -->
-    <div class="card shadow-sm border-10 rounded-4 mb-4">
+    <div class="card shadow rounded-4 mb-4">
 
-        <div class="card-header text-white py-3"
-            style="background: linear-gradient(135deg,#0d2137 0%,#1565c0 100%);">
-
-            <h5 class="mb-0">
+        <div class="card-header bg-primary text-white text-center">
+            <h4 class="mb-0">
                 <i class="bi bi-search me-2"></i>
                 Get Marksheet
-            </h5>
-
+            </h4>
         </div>
 
         <div class="card-body">
 
-           <!-- Error Message -->
-        <div class="alert alert-danger py-2 mx-3 mt-3 d-flex justify-content-between align-items-center"
-            *ngIf="form.error && form.message">
+             <!-- Message -->
+<div *ngIf="!form.error && form.message"
+     class="alert alert-success alert-dismissible fade show position-relative">
 
-            <span>
-                <i class="bi bi-exclamation-circle-fill me-2"></i>
-                {{form.message}}
-            </span>
+    {{ form.message }}
 
-            <button type="button" class="btn-close" (click)="form.message=''">
-            </button>
+    <button type="button"
+            class="close"
+            (click)="form.message = ''"
+            style="position:absolute; right:15px; top:8px; border:none; background:transparent; font-size:24px;">
+        &times;
+    </button>
 
-        </div>
+</div>
 
-        <!-- Success Message -->
-        <div class="alert alert-success py-2 mx-3 mt-3 d-flex justify-content-between align-items-center"
-            *ngIf="!form.error && form.message">
+<div *ngIf="form.error && form.message"
+     class="alert alert-danger alert-dismissible fade show position-relative">
 
-            <span>
-                <i class="bi bi-check-circle-fill me-2"></i>
-                {{form.message}}
-            </span>
+    {{ form.message }}
 
-            <button type="button" class="btn-close" (click)="form.message=''">
-            </button>
+    <button type="button"
+            class="close"
+            (click)="form.message = ''"
+            style="position:absolute; right:15px; top:8px; border:none; background:transparent; font-size:24px;">
+        &times;
+    </button>
 
-        </div>
-
+</div>
             <form (ngSubmit)="go()">
 
-                <div class="row align-items-end">
+                <div class="row g-3 align-items-end">
 
                     <div class="col-md-9">
 
@@ -53,24 +52,26 @@
                             Roll No
                         </label>
 
-                        <input type="text"
+                        <input
+                            type="text"
                             class="form-control"
                             name="rollNo"
                             [(ngModel)]="form.data.rollNo"
-                            placeholder="Enter Roll No">
+                            placeholder="Enter Roll Number">
 
-                        <div class="text-danger small">
+                        <small class="text-danger">
                             {{form.inputerror.rollNo}}
-                        </div>
+                        </small>
 
                     </div>
 
-                    <div class="col-md-3 mt-3 mt-md-0">
+                    <div class="col-md-3 d-grid">
 
-                        <button type="submit"
-                            class="btn btn-primary w-100">
+                        <button
+                            class="btn btn-primary"
+                            type="submit">
 
-                            <i class="bi bi-search me-2"></i>
+                            <i class="bi bi-search"></i>
                             Search
 
                         </button>
@@ -86,28 +87,22 @@
     </div>
 
     <!-- Marksheet -->
-    <div *ngIf="form.list && form.list.rollNo"
-        class="card shadow-lg border-10 rounded-4">
+    <div
+        class="card shadow rounded-4"
+        *ngIf="form.list && form.list.rollNo">
 
-        <div class="card-body p-5">
+        <div class="card-header bg-success text-white text-center">
+            <h3 class="mb-0">
+                STUDENT MARKSHEET
+            </h3>
+        </div>
 
-            <!-- Header -->
-            <div class="text-center border-bottom pb-3 mb-4">
-
-                <h2 class="fw-bold text-primary">
-                    ONLINE RESULT SYSTEM
-                </h2>
-
-                <h5 class="text-secondary">
-                    STUDENT MARKSHEET
-                </h5>
-
-            </div>
+        <div class="card-body">
 
             <!-- Student Details -->
-            <div class="row mb-4">
+            <div class="row mb-3">
 
-                <div class="col-md-6">
+                <div class="col-md-6 mb-2">
                     <strong>Roll No :</strong>
                     {{form.list.rollNo}}
                 </div>
@@ -119,96 +114,95 @@
 
             </div>
 
-            <!-- Marks Table -->
-            <table class="table table-bordered text-center">
+            <!-- Table -->
+            <div class="table-responsive">
 
-                <thead class="table-dark">
+                <table class="table table-bordered table-hover text-center">
 
-                    <tr>
-                        <th>Subject</th>
-                        <th>Marks Obtained</th>
-                        <th>Maximum Marks</th>
-                        <th>Status</th>
-                    </tr>
+                    <thead class="table-dark">
 
-                </thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Marks</th>
+                            <th>Maximum</th>
+                            <th>Status</th>
+                        </tr>
 
-                <tbody>
+                    </thead>
 
-                    <tr>
-                        <td>Physics</td>
-                        <td>{{form.list.physics}}</td>
-                        <td>100</td>
+                    <tbody>
 
-                        <td>
+                        <tr>
+                            <td>Physics</td>
+                            <td>{{form.list.physics}}</td>
+                            <td>100</td>
+                            <td>
 
-                            <span
-                                [class]="form.list.physics >= 33 ? 'badge bg-success' : 'badge bg-danger'">
+                                <span
+                                    class="badge"
+                                    [ngClass]="form.list.physics>=33?'bg-success':'bg-danger'">
 
-                                {{form.list.physics >= 33 ? 'Pass' : 'Fail'}}
+                                    {{form.list.physics>=33?'Pass':'Fail'}}
 
-                            </span>
+                                </span>
 
-                        </td>
+                            </td>
+                        </tr>
 
-                    </tr>
+                        <tr>
+                            <td>Chemistry</td>
+                            <td>{{form.list.chemistry}}</td>
+                            <td>100</td>
+                            <td>
 
-                    <tr>
-                        <td>Chemistry</td>
-                        <td>{{form.list.chemistry}}</td>
-                        <td>100</td>
+                                <span
+                                    class="badge"
+                                    [ngClass]="form.list.chemistry>=33?'bg-success':'bg-danger'">
 
-                        <td>
+                                    {{form.list.chemistry>=33?'Pass':'Fail'}}
 
-                            <span
-                                [class]="form.list.chemistry >= 33 ? 'badge bg-success' : 'badge bg-danger'">
+                                </span>
 
-                                {{form.list.chemistry >= 33 ? 'Pass' : 'Fail'}}
+                            </td>
+                        </tr>
 
-                            </span>
+                        <tr>
+                            <td>Maths</td>
+                            <td>{{form.list.maths}}</td>
+                            <td>100</td>
+                            <td>
 
-                        </td>
+                                <span
+                                    class="badge"
+                                    [ngClass]="form.list.maths>=33?'bg-success':'bg-danger'">
 
-                    </tr>
+                                    {{form.list.maths>=33?'Pass':'Fail'}}
 
-                    <tr>
-                        <td>Maths</td>
-                        <td>{{form.list.maths}}</td>
-                        <td>100</td>
+                                </span>
 
-                        <td>
+                            </td>
+                        </tr>
 
-                            <span
-                                [class]="form.list.maths >= 33 ? 'badge bg-success' : 'badge bg-danger'">
+                    </tbody>
 
-                                {{form.list.maths >= 33 ? 'Pass' : 'Fail'}}
+                </table>
 
-                            </span>
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
+            </div>
 
             <!-- Summary -->
-            <div class="row mt-4">
+            <div class="row g-3 mt-2">
 
                 <div class="col-md-4">
 
-                    <div class="card bg-light border-0">
+                    <div class="card text-center shadow-sm">
 
-                        <div class="card-body text-center">
+                        <div class="card-body">
 
                             <h6>Total Marks</h6>
 
-                            <h4 class="fw-bold">
+                            <h4 class="text-primary">
 
-                                {{form.list.physics +
-                                form.list.chemistry +
-                                form.list.maths}}
+                                {{form.list.physics+form.list.chemistry+form.list.maths}}
 
                             </h4>
 
@@ -218,19 +212,17 @@
 
                 </div>
 
-                <div class="col-md-4 mt-3 mt-md-0">
+                <div class="col-md-4">
 
-                    <div class="card bg-light border-0">
+                    <div class="card text-center shadow-sm">
 
-                        <div class="card-body text-center">
+                        <div class="card-body">
 
                             <h6>Percentage</h6>
 
-                            <h4 class="fw-bold text-primary">
+                            <h4 class="text-success">
 
-                                {{((form.list.physics +
-                                form.list.chemistry +
-                                form.list.maths) * 100 / 300)}}%
+                                {{((form.list.physics+form.list.chemistry+form.list.maths)*100/300)|number:'1.2-2'}}%
 
                             </h4>
 
@@ -240,37 +232,21 @@
 
                 </div>
 
-                <div class="col-md-4 mt-3 mt-md-0">
+                <div class="col-md-4">
 
-                    <div class="card bg-light border-0">
+                    <div class="card text-center shadow-sm">
 
-                        <div class="card-body text-center">
+                        <div class="card-body">
 
                             <h6>Result</h6>
 
-                            <h4>
+                            <span
+                                class="badge fs-6"
+                                [ngClass]="(form.list.physics>=33 && form.list.chemistry>=33 && form.list.maths>=33)?'bg-success':'bg-danger'">
 
-                                <span
-                                    *ngIf="form.list.physics >= 33 &&
-                                           form.list.chemistry >= 33 &&
-                                           form.list.maths >= 33"
-                                    class="badge bg-success">
+                                {{(form.list.physics>=33 && form.list.chemistry>=33 && form.list.maths>=33)?'PASS':'FAIL'}}
 
-                                    PASS
-
-                                </span>
-
-                                <span
-                                    *ngIf="form.list.physics < 33 ||
-                                           form.list.chemistry < 33 ||
-                                           form.list.maths < 33"
-                                    class="badge bg-danger">
-
-                                    FAIL
-
-                                </span>
-
-                            </h4>
+                            </span>
 
                         </div>
 

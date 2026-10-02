@@ -67,6 +67,10 @@ import {
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmeritlist.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 
+import { OrderComponent } from './order/order.component';
+import { OrderListComponent } from './order/order-list.component';
+
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(
@@ -125,7 +129,10 @@ export function HttpLoaderFactory(http: HttpClient) {
 
     MarksheetmeritlistComponent,
 
-    GetmarksheetComponent
+    GetmarksheetComponent,
+    
+     OrderComponent,
+     OrderListComponent
   ],
 
   imports: [

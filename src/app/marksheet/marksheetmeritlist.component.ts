@@ -12,6 +12,7 @@ import { HttpServiceService } from '../http-service.service';
 export class MarksheetmeritlistComponent extends BaseCtl {
 
 
+  
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute, private httpservice: HttpServiceService) {
     super(locator.endpoints.MARKSHEET, locator, route);
 
@@ -22,7 +23,7 @@ export class MarksheetmeritlistComponent extends BaseCtl {
 
   getMeritList() {
     this.httpservice.get(
-      "http://localhost:8888/Marksheet/meritlist",
+      "http://localhost:8080/Marksheet/meritlist",
       (res: any) => {
 
         if (res.success) {
@@ -45,7 +46,7 @@ export class MarksheetmeritlistComponent extends BaseCtl {
     );
   }
 
-  printReport() {
+ printReport() {
     const token = localStorage.getItem('token');
 
     if (!token) {
@@ -53,13 +54,9 @@ export class MarksheetmeritlistComponent extends BaseCtl {
       return;
     }
 
-    // Add query parameter for merit list report
-    const reportUrl = "http://localhost:8888/jasper/report?reportName=meritlist";
-    
-    console.log("Print Report - Token:", token ? "Present" : "Missing");
-    console.log("Report URL:", reportUrl);
-
-    this.httpservice.getReport(reportUrl, token);
+    this.httpservice.getReport(
+      "http://localhost:8080/jasper/report",
+      token
+    );
   }
-
 }

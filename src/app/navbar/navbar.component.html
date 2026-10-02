@@ -6,10 +6,10 @@
 
    <div class="container-fluid px-4">
       <!-- Mobile Toggle -->
-      <button class="navbar-toggler me-3 border border-light rounded-3 p-2" type="button" data-bs-toggle="collapse"
+      <button class="navbar-toggler border border-light rounded-3 p-2" type="button" data-bs-toggle="collapse"
          data-bs-target="#mainNav">
 
-         <span class="navbar-toggler-icon" style="color: bisque;"></span>
+         <span class="navbar-toggler-icon " style="color: bisque;"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav" *ngIf="isLogin()">
 
@@ -23,6 +23,36 @@
             </small>
          </div>
          <ul class="navbar-nav ms-auto">
+
+         <!-- ---- Daily Modules ---- -->
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle text-white px-3 py-3" href="#"
+					data-bs-toggle="dropdown" aria-expanded="false"> <i
+						class="bi bi-journal-bookmark-fill"></i> Module
+				</a>
+					<ul
+						class="dropdown-menu dropdown-menu-dark shadow border-0 rounded-3 overflow-auto"
+						style="min-width: 210px; max-width: 400px; max-height: 400px; background: #1a2e4a;">
+
+                  <!--Order Module-->
+
+                  <li>
+							<h6 class="dropdown-header text-uppercase text-info small">
+								<i class="bi bi-menu-down me-1"></i> Order
+							</h6>
+						</li>
+
+                   <li><a class="dropdown-item" [routerLink]="['/order']"> <i class="bi bi-menu-down me-2 text-success me-2"></i> Add Order</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/orderList']"><i class="bi bi bi-check-circle-fill me-2 text-primary me-2"></i> Order List</a></li>
+						<hr class="dropdown-divider border-secondary">
+
+
+
+
+               </ul></li>
+
+
 
             <!-- Marksheet -->
             <li class="nav-item dropdown">

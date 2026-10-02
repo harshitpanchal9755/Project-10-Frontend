@@ -26,6 +26,8 @@ import { MyprofileComponent } from './user/myprofile.component';
 import { ChangepasswordComponent } from './user/changepassword.component';
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmeritlist.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
+import { OrderComponent } from './order/order.component';
+import { OrderListComponent } from './order/order-list.component';
 
 
 const routes: Routes = [
@@ -211,7 +213,23 @@ const routes: Routes = [
    {
     path: 'changepassword',
     component: ChangepasswordComponent
-   }
+   },
+
+   {
+    path: 'order',
+    component: OrderComponent
+   },
+
+   {
+    path: 'orderList',
+    component: OrderListComponent
+   },
+
+   {
+    path: 'order/:id',
+    component: OrderComponent
+   },
+
 ];
 
 @NgModule({
