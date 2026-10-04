@@ -70,6 +70,9 @@ import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order/order-list.component';
 
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehicleListComponent } from './vehicle/vehicle-list.component';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -128,11 +131,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     ForgotpasswordComponent,
 
     MarksheetmeritlistComponent,
-
     GetmarksheetComponent,
     
      OrderComponent,
-     OrderListComponent
+     OrderListComponent,
+
+     VehicleComponent,
+     VehicleListComponent
   ],
 
   imports: [

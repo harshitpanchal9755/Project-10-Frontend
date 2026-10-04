@@ -28,6 +28,8 @@ import { MarksheetmeritlistComponent } from './marksheet/marksheetmeritlist.comp
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order/order-list.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehicleListComponent } from './vehicle/vehicle-list.component';
 
 
 const routes: Routes = [
@@ -228,6 +230,21 @@ const routes: Routes = [
    {
     path: 'order/:id',
     component: OrderComponent
+   },
+
+   {
+    path: 'vehicle',
+    component: VehicleComponent
+   },
+
+   {
+    path: 'vehicleList',
+    component: VehicleListComponent
+   },
+
+   {
+    path: 'vehicle/:id',
+    component: VehicleComponent
    },
 
 ];
