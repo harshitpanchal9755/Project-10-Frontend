@@ -72,6 +72,8 @@ import { OrderListComponent } from './order/order-list.component';
 
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicle/vehicle-list.component';
+import { CarComponent } from './car/car.component';
+import { CarListComponent } from './car/car-list.component';
 
 
 
@@ -137,7 +139,10 @@ export function HttpLoaderFactory(http: HttpClient) {
      OrderListComponent,
 
      VehicleComponent,
-     VehicleListComponent
+     VehicleListComponent,
+     
+     CarComponent,
+     CarListComponent
   ],
 
   imports: [

@@ -30,6 +30,8 @@ import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order/order-list.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicle/vehicle-list.component';
+import { CarComponent } from './car/car.component';
+import { CarListComponent } from './car/car-list.component';
 
 
 const routes: Routes = [
@@ -247,6 +249,20 @@ const routes: Routes = [
     component: VehicleComponent
    },
 
+   {
+    path: 'car',
+    component: CarComponent
+   },
+
+   {
+    path: 'carList',
+    component: CarListComponent
+   },
+
+   {
+    path: 'car/:id',
+    component: CarComponent
+   },
 ];
 
 @NgModule({

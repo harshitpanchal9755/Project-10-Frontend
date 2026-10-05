@@ -1,5 +1,3 @@
-
-
 <div class="container py-4" style="max-width: 700px;">
     <div class="card border-10 shadow-sm rounded-4 overflow-hidden">
 
@@ -7,12 +5,12 @@
             style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
 
             <h5 class="mb-0 fw-bold" *ngIf="!form.data.id">
-                <i class="bi bi-person-fill-add me-1">Add Order</i>
+                <i class="bi bi-person-fill-add me-1">Add Car</i>
             
             </h5>
 
             <h5 class="mb-0 fw-bold" *ngIf="form.data.id>0">
-                <i class="bi bi-pencil-square me-2">Update Order</i>
+                <i class="bi bi-pencil-square me-2">Update Car</i>
            
             </h5>
 
@@ -20,7 +18,7 @@
 
         <div class="card-body p-4">
 
-            <!-- Error Message -->
+           <!-- Error Message -->
             <div class="alert alert-danger py-2 mx-3 mt-3 d-flex justify-content-between align-items-center"
                 *ngIf="form.error && form.message">
 
@@ -34,7 +32,7 @@
 
             </div>
 
-            <!-- Success Message -->
+           <!-- Success Message -->
             <div class="alert alert-success py-2 mx-3 mt-3 d-flex justify-content-between align-items-center"
                 *ngIf="!form.error && form.message">
 
@@ -52,43 +50,30 @@
 
                 <div class="col-md-6">
                     <label class="form-label fw-semibold">
-                        OrderName <span class="text-danger">*</span>
+                        CarName <span class="text-danger">*</span>
                     </label>
-                    <input type="text" class="form-control" [(ngModel)]="form.data.orderName" name="firstName"
-                        placeholder="Enter OrderName">
-                    <small class="text-danger">{{form.inputerror.orderName}}</small>
+                    <input type="text" class="form-control" [(ngModel)]="form.data.carname" name="carname"
+                        placeholder="Enter the CarName">
+                    <small class="text-danger">{{form.inputerror.carname}}</small>
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label fw-semibold">
-                        Amount <span class="text-danger">*</span>
+                        showRoom <span class="text-danger">*</span>
                     </label>
-                    <input type="text" class="form-control" [(ngModel)]="form.data.amount" name="lastName"
-                        placeholder="Enter amount">
-                    <small class="text-danger">{{form.inputerror.amount}}</small>
+                    <input type="text" class="form-control" [(ngModel)]="form.data.showroom" name="showroom"
+                        placeholder="Enter the ShowRoom">
+                    <small class="text-danger">{{form.inputerror.showroom}}</small>
                 </div> 
 
                 <div class="col-md-6">
                     <label class="form-label fw-semibold">
-                        OrderDate <span class="text-danger">*</span>
+                        Location <span class="text-danger">*</span>
                     </label>
-                    <input type="date" class="form-control" [(ngModel)]="form.data.orderDate"
-                     name="orderDate">
-                    <small class="text-danger">{{form.inputerror.orderDate}}</small>
+                    <input type="text" class="form-control" [(ngModel)]="form.data.location"
+                     name="location" placeholder="Enter the Location">
+                    <small class="text-danger">{{form.inputerror.location}}</small>
                 </div>
-
-                <div class="col-md-6">
-                    <label class="form-label fw-semibold">
-                        Status <span class="text-danger">*</span>
-                    </label>
-                    <select class="form-select" [(ngModel)]="form.data.status" name="status">
-                        <option value="undefined">Select Status</option>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select>
-                    <small class="text-danger">{{form.inputerror.status}}</small>
-                </div>
-
             </div>
 
             <div class="d-flex gap-2 mt-4 pt-3 border-top">
@@ -97,7 +82,7 @@
                     Save
                 </button>
 
-                <button type="button" (click)="forward('orderList')" class="btn btn-outline-secondary">
+                <button type="button" (click)="forward('carList')" class="btn btn-outline-secondary">
                     <i class="bi bi-list-ul me-1"></i>
                     List
                 </button>
