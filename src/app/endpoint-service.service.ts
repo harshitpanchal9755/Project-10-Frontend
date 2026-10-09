@@ -20,4 +20,8 @@ export class EndpointServiceService {
   public ORDER = this.SERVER_URL + "/Order";
   public VEHICLE = this.SERVER_URL + "/Vehicle";
   public CAR = this.SERVER_URL + "/Car";
+  public EMPLOYEE = this.SERVER_URL + "/Employee";
+  //public LOGOUT = this.service_url + "/logout";
+  ////http://localhost:8080/Auth/login
+  //http://localhost:8080/Auth/logout
 }

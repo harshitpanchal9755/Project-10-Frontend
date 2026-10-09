@@ -74,6 +74,8 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicle/vehicle-list.component';
 import { CarComponent } from './car/car.component';
 import { CarListComponent } from './car/car-list.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeListComponent } from './employee/employee-list.component';
 
 
 
@@ -84,7 +86,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     '.json'
   );
 }
-``
 
 @NgModule({
 
@@ -142,7 +143,10 @@ export function HttpLoaderFactory(http: HttpClient) {
      VehicleListComponent,
      
      CarComponent,
-     CarListComponent
+     CarListComponent,
+     
+     EmployeeComponent,
+     EmployeeListComponent
   ],
 
   imports: [

@@ -32,6 +32,8 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicle/vehicle-list.component';
 import { CarComponent } from './car/car.component';
 import { CarListComponent } from './car/car-list.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeListComponent } from './employee/employee-list.component';
 
 
 const routes: Routes = [
@@ -263,6 +265,22 @@ const routes: Routes = [
     path: 'car/:id',
     component: CarComponent
    },
+
+   {
+    path: 'employee',
+    component: EmployeeComponent
+   },
+
+   {
+    path: 'employeeList',
+    component: EmployeeListComponent
+   },
+
+   {
+    path: "employee/:id",
+    component: EmployeeComponent
+   },
+   
 ];
 
 @NgModule({
